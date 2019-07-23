@@ -16,7 +16,7 @@ class PostService
             "content" => $inputs["content"],
             "image" => $uploadImage->uploadImage($inputs["file"], changeTitle($inputs["title"])),
             "date" => date("Y-m-d H:i:s"),
-            "id_category" => $inputs["category"]
+            "id_category" => $inputs["category"],
         ]);
         
     }

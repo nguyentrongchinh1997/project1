@@ -14,6 +14,7 @@ class CategoryService
             'unsigned_name' => changeTitle($inputs['name']),
             'type' => $inputs['type'],
         ]);
+        
     }
     /*end*/
     

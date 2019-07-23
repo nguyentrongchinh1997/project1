@@ -65,7 +65,6 @@ class DocumentService
         } else {
             $nameImage = $olderDocument->image;
         }
-        
         $olderDocument->name = $name;
         $olderDocument->unsigned_name = changeTitle($name);
         $olderDocument->dicription = $dicription;
