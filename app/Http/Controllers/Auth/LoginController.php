@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -25,8 +26,15 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
+    
+    protected function redirectTo()
+    {
+        if (Auth::user()->level == 0) {
+            return route('trang-chu');
+        } else {
+            return route('admin.index');
+        }
+    }
     /**
      * Create a new controller instance.
      *
