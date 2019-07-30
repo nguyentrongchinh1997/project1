@@ -29,4 +29,14 @@ return [
     'reset_password' => 'Reset password',
     'send' => 'Send Password Reset Link',
     'logout' => 'Logout',
+    'admin' => [
+        'name' => 'Admin',
+        'menu' => 'Menu',
+        'category' => 'Category',
+        'post' => 'Post',
+        'document' => 'Document',
+        'user' => 'User',
+        'add' => 'Add',
+        'list' => 'List',
+    ],
 ];

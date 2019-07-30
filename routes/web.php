@@ -20,3 +20,7 @@ Route::get('index', function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('index', 'admin\AdminController@getLayoutIndex')->name('admin.index');
+});
