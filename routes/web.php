@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('client.pages.index');
 });
+Route::get('index', function(){
+    return view('client.pages.index');
+})->name('trang-chu');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
