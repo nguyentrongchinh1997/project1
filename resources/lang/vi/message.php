@@ -29,4 +29,14 @@ return [
     'reset_password' => 'Lấy lại mật khẩu',
     'send' => 'Gửi',
     'logout' => 'Đăng Xuất',
+    'admin' => [
+        'name' => 'Quản trị',
+        'menu' => 'Danh mục',
+        'category' => 'Chuyên mục',
+        'post' => 'Bài viết',
+        'document' => 'Tài liệu',
+        'user' => 'Tài khoản',
+        'add' => 'Thêm',
+        'list' => 'Danh sách',
+    ],
 ];
