@@ -13,7 +13,7 @@ class DocumentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
     /**
      * Get the validation rules that apply to the request.
@@ -23,7 +23,7 @@ class DocumentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:20|max:191',
+            'name' => 'required|min:10|max:191',
             'dicription' => 'required',
         ];
     }

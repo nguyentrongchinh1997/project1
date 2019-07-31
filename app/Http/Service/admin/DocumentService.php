@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Service\admin;
 
 use App\Model\Document;
@@ -32,21 +33,40 @@ class DocumentService
 
     public function addDocument($inputs)
     {
-        return $this->documentModel->create(
+        return $this->documentModel->create([
             'name' => $inputs['name'],
             'unsigned_name' => str_slug($inputs['name']),
             'dicription' => $inputs['dicription'],
             'type' => $inputs['type'],
-            'price' => $inputs['price'],
+            'price' => $this->price($inputs),
             'image' => $this->upload($inputs['poster'], $inputs['name'], 'upload/document/poster'),
             'url_document' => $this->upload($inputs['document'], $inputs['name'], 'upload/document/file'),
-            'preview' => $inputs['preview'],
+            'preview' => $this->preview($inputs),
             'view' => 0,
+            'download' => 0,
             'page' => $inputs['page'],
-            'format' => formatDocument($inputs['document']),
+            'format' => $this->formatDocument($inputs['document']),
             'category_id' => $inputs['category_id'],
             'date' => date('Y-m-d H:i:s'),
-        )
+        ]);
+    }
+
+    public function price($inputs)
+    {
+        if ($inputs['type'] == config('config.document.type.free')) {
+            return $inputs['price_hidden'];
+        } else {
+            return $inputs['price'];
+        }
+    }
+
+    public function preview($inputs)
+    {
+        if ($inputs['type'] == config('config.document.type.free')) {
+            return $inputs['preview_hidden'];
+        } else {
+            return $inputs['preview'];
+        }
     }
 
     public function upload($inputs, $name, $path)
@@ -61,7 +81,7 @@ class DocumentService
 
     public function formatDocument($inputs)
     {
-        return $inputs->getClientOriginalExtension(); // đuôi file tài liệu
+        return $inputs->getClientOriginalExtension();
     }
 
     public function olderDocument($id)
@@ -74,26 +94,28 @@ class DocumentService
     public function postEditDocument($inputs, $id)
     {
         $olderDocument = $this->documentModel->findOrFail($id);
-        if (!is_null($inputs['poster'])) {
+
+        if (isset($inputs['poster'])) {
             $namePoster = $this->upload($inputs['poster'], $inputs['name'], 'upload/document/poster');
         } else {
             $namePoster = $olderDocument->image;
         }
-        if (!is_null($inputs['document'])) {
+        if (isset($inputs['document'])) {
             $nameDocument = $this->upload($inputs['document'], $inputs['name'], 'upload/document/file');
             $format = $this->formatDocument($inputs['document']);
         } else {
             $nameDocument = $olderDocument->url_document;
             $format = $olderDocument->format;
         }
+
         $olderDocument->name = $inputs['name'];
         $olderDocument->unsigned_name = str_slug($inputs['name']);
         $olderDocument->dicription = $inputs['dicription'];
         $olderDocument->type = $inputs['type'];
-        $olderDocument->price = $inputs['price'];
+        $olderDocument->price = $this->price($inputs);
         $olderDocument->image = $namePoster;
         $olderDocument->url_document = $nameDocument;
-        $olderDocument->preview = $inputs['preview'];
+        $olderDocument->preview = $this->preview($inputs);
         $olderDocument->page = $inputs['page'];
         $olderDocument->format = $format;
         $olderDocument->category_id = $inputs['category_id'];
