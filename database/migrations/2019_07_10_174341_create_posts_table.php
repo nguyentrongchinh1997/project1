@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->integer("view")->nullable();
             $table->dateTime("date");
             $table->integer("category_id");
+            $table->timestamps();
         });
     }
 
