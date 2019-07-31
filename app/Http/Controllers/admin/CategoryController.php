@@ -25,10 +25,10 @@ class CategoryController extends Controller
     public function getListCategoryForm()
     {
         $data = [
-            "listCategory" => $this->categoryService->listAllCategory()
+            'listCategory' => $this->categoryService->listCategory(),
         ];
 
-        return view("admin.pages.category.list", $data);
+        return view('admin.pages.category.list', $data);
     }
 
     /**
@@ -36,7 +36,7 @@ class CategoryController extends Controller
      */
     public function getAddCategoryForm()
     {
-        return view("admin.pages.category.add");
+        return view('admin.pages.category.add');
     }
 
     /**
@@ -47,7 +47,7 @@ class CategoryController extends Controller
     {
         $this->categoryService->create($request->all());
 
-        return redirect("admin/category/add")->with("thongbao", __('add.success'));
+        return redirect()->route('category.list')->with('thongbao', __('message.add.success'));
     }
 
     /**
@@ -58,7 +58,7 @@ class CategoryController extends Controller
     {
         $this->categoryService->deleteCategory($id);
 
-        return redirect("admin/category/list")->with("thongbao", __('delete.success'));
+        return redirect()->route('category.list')->with('thongbao', __('message.delete.success'));
     }
 
     /**
@@ -66,7 +66,7 @@ class CategoryController extends Controller
      */
     public function getEditCategory($id)
     {
-        return view("admin.pages.category.edit", ["category" => $this->categoryService->getDataCategory($id)]);
+        return view('admin.pages.category.edit', ['category' => $this->categoryService->getDataCategory($id)]);
     }
 
     /**
@@ -77,6 +77,6 @@ class CategoryController extends Controller
     {
         $this->categoryService->edit($id, $request->all());
 
-        return redirect("admin/category/edit/$id")->with("thongbao", __('edit.success'));
+        return redirect()->route('category.list')->with('thongbao', __('message.edit.success'));
     }
 }

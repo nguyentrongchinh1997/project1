@@ -38,8 +38,8 @@ class DocumentService
             'dicription' => $inputs['dicription'],
             'type' => $inputs['type'],
             'price' => $inputs['price'],
-            'image' => $this->upload($inputs['poster'], $inputs['name'], 'upload/poster/'),
-            'url_document' => $this->upload($inputs['document'], $inputs['name'], 'upload/document/'),
+            'image' => $this->upload($inputs['poster'], $inputs['name'], 'upload/document/poster'),
+            'url_document' => $this->upload($inputs['document'], $inputs['name'], 'upload/document/file'),
             'preview' => $inputs['preview'],
             'view' => 0,
             'page' => $inputs['page'],
@@ -75,12 +75,12 @@ class DocumentService
     {
         $olderDocument = $this->documentModel->findOrFail($id);
         if (!is_null($inputs['poster'])) {
-            $namePoster = $this->upload($inputs['poster'], $inputs['name'], 'upload/poster/');
+            $namePoster = $this->upload($inputs['poster'], $inputs['name'], 'upload/document/poster');
         } else {
             $namePoster = $olderDocument->image;
         }
         if (!is_null($inputs['document'])) {
-            $nameDocument = $this->upload($inputs['document'], $inputs['name'], 'upload/document/');
+            $nameDocument = $this->upload($inputs['document'], $inputs['name'], 'upload/document/file');
             $format = $this->formatDocument($inputs['document']);
         } else {
             $nameDocument = $olderDocument->url_document;

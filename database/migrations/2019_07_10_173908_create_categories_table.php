@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string("name");//tên chuyên m
             $table->string("unsigned_name"); // tên không dấu của chuyên m
             $table->string("type"); // loại chuyên mục (thi thử, ..)
+            $table->timestamps();
         });
     }
 

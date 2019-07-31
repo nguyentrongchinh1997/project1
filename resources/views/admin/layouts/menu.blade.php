@@ -19,10 +19,10 @@
                 <a href="admin/theloai/danhsach"><i class="fa fa-bar-chart-o fa-fw"></i>{{ trans('message.admin.category') }} <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/category/add">{{ trans('message.admin.add') }}</a>
+                        <a href="{{ route('category.add') }}">{{ trans('message.admin.add') }}</a>
                     </li>
                     <li>
-                        <a href="admin/category/list">{{ trans('message.admin.list') }} </a>
+                        <a href="{{ route('category.list') }}">{{ trans('message.admin.list') }} </a>
                     </li>
                     
                 </ul>
