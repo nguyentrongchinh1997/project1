@@ -28,6 +28,7 @@ class CreateDocumentsTable extends Migration
             $table->integer("page"); // so trang
             $table->string("format"); // dinh dang
             $table->integer("category_id"); // id chuyen muc
+            $table->timestamps();
         });
     }
 

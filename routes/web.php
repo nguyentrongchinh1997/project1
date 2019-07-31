@@ -23,4 +23,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function(){
     Route::get('index', 'admin\AdminController@getLayoutIndex')->name('admin.index');
+    Route::group(['prefix' => 'category'], function(){
+        Route::get('add', 'admin\CategoryController@getAddCategoryForm')->name('category.add');
+        Route::post('add', 'admin\CategoryController@postAddCategory');
+
+        Route::get('list', 'admin\CategoryController@getListCategoryForm')->name('category.list');
+        Route::get('delete/{id}', 'admin\CategoryController@deleteCategory')->name('category.delete');
+
+        Route::get('edit/{id}', 'admin\CategoryController@getEditCategory')->name('category.edit');
+        Route::post('edit/{id}', 'admin\CategoryController@postEditCategory');
+    });
 });

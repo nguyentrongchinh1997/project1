@@ -22,6 +22,7 @@
         <link href="{{ asset('/admin_asset/bower_components/datatables-responsive/css/dataTables.responsive.css') }}" rel="stylesheet">
         <!-- Chèn ckeditor -->
         <script type="text/javascript" language="javascript" src="{{ asset('/admin_asset/ckeditor/ckeditor.js') }}" ></script>
+        <script type="text/javascript" language="javascript" src="{{ asset('/js/admin.js') }}" ></script>
     </head>
 
     <body>

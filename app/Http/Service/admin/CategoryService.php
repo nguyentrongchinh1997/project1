@@ -17,6 +17,11 @@ class CategoryService
         $this->model = $category;
     }
 
+    public function listCategory()
+    {
+        return $this->model->all();
+    }
+
     /**
      * Thêm chuyên mục
      */
