@@ -8,4 +8,10 @@ return [
             'example' => 2,
         ],
     ],
+    'document' => [
+        'type' => [
+            'free' => 0,
+            'pay' => 1,
+        ],
+    ],
 ];

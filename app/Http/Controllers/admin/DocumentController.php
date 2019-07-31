@@ -1,9 +1,10 @@
 <?php
+
 namespace App\Http\Controllers\admin;
 
+use App\Http\Service\admin\DocumentService;
 use App\Http\Controllers\Controller; 
-use Illuminate\Http\Request;
-use App\Service\admin\DocumentService;
+use App\Http\Requests\DocumentRequest;
 
 class DocumentController extends Controller
 {
@@ -16,34 +17,38 @@ class DocumentController extends Controller
 
     public function getAddDocument()
     {
-        return view('admin.pages.document.add', ['category' => $this->documentService->category()]);
+        $data = [
+            'listCategory' => $this->documentService->category(),
+        ];
+
+        return view('admin.pages.document.add', $data);
     }
     
     public function getListDocument()
     {
-        return view('admin.pages.document.list', ['document' => $this->documentService->listDocument()]); 
+        return view('admin.pages.document.list', ['listDocument' => $this->documentService->listDocument()]); 
     }
 
     public function postAddDocument(DocumentRequest $request)
     {
         $this->documentService->addDocument($request->all());
 
-        return redirect('admin/document/add')->with('thongbao', __('add.success'));
+        return redirect('admin/document/add')->with('thongbao', __('message.add.success'));
     }
 
     public function getEditDocument($id) {
         $data = [
             'olderDocument' => $this->documentService->olderDocument($id),
             'category' => $this->documentService->category(),
-        ]
+        ];
 
         return view('admin.pages.document.edit', $data);
     }
     
     public function postEditDocument(DocumentRequest $request, $id)
     {
-        $this->editDocument($request->all(), $id);
+        $this->documentService->postEditDocument($request->all(), $id);
         
-        return redirect('admin/document/edit/$id')->with('thongbao', __('edit.success'));
+        return redirect()->route('document.edit', ['id' => $id])->with('thongbao', __('message.edit.success'));
     }
 }

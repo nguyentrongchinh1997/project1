@@ -11,8 +11,5 @@ npm-debug.log
 yarn-error.log
 .env
 vendor
-/public/admin_asset
-/public/css
-/public/font
 /public/image
 /public/upload
