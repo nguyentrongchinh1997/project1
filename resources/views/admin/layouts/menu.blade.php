@@ -42,10 +42,10 @@
                 <a href="admin/tintuc/danhsach"><i class="fa fa-bar-chart-o fa-fw"></i>{{ trans('message.admin.document') }}<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/document/list">{{ trans('message.admin.add') }}</a>
+                        <a href="{{ route('document.add') }}">{{ trans('message.admin.add') }}</a>
                     </li>
                     <li>
-                        <a href="admin/document/add">{{ trans('message.admin.list') }}</a>
+                        <a href="{{ route('document.list') }}">{{ trans('message.admin.list') }}</a>
                     </li>
                 </ul>
             </li>
