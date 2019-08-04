@@ -57,10 +57,16 @@ class PostService
     public function editPost($inputs, $id)
     {
         $edit = $this->post->findOrFail($id);
+        
+        if (isset($inputs['file'])) {
+            $edit->image = $this->editUploadImage($edit->image, $inputs['file'], str_slug($inputs['title']));
+        } else {
+            $edit->image = $edit->image;
+        }
         $edit->title = $inputs['title'];
-        $edit->unsigned_title = changeTitle($inputs['title']);
+        $edit->unsigned_title = str_slug($inputs['title']);
         $edit->content = $inputs['content'];
-        $edit->image = $this->editUploadImage($edit->image, $inputs['file'], str_slug($inputs['title']));
+        
         $edit->date = date('Y-m-d H:i:s');
         $edit->category_id = $inputs['category'];
 
@@ -69,13 +75,9 @@ class PostService
 
     public function editUploadImage($oldName, $file, $newName)
     {
-        if (is_null($file)) {
-            return $oldName;
-        } else {
-            $file->move('upload/post', $newName);
+        $file->move('upload/post', $newName);
 
-            return $newName;
-        }
+        return $newName;
     }
 
     public function listCategory()

@@ -41,4 +41,14 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('edit/{id}', 'admin\DocumentController@getEditDocument')->name('document.edit');
         Route::post('edit/{id}', 'admin\DocumentController@postEditDocument');
     });
+
+    Route::group(['prefix' => 'post'], function(){
+        Route::get('edit/{id}', 'admin\PostController@getEditPost')->name('post.edit');
+        Route::get('add', 'admin\PostController@getAddPost')->name('post.add');
+        Route::post('add', 'admin\PostController@postAddPost')->name('post.add');
+
+        Route::get('list', 'admin\PostController@getListPost')->name('post.list');
+        Route::get('delete/{id}', 'admin\PostController@deletePost')->name('post.delete');
+        Route::post('edit/{id}', 'admin\PostController@postEditPost');
+    });
 });

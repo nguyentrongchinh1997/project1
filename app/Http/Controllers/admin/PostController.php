@@ -36,10 +36,10 @@ class PostController extends Controller
     {
         $this->post->deletePost($id);
 
-        return redirect('admin/post/list')->with('thongbao', __('delete.success'));
+        return redirect()->route('post.list')->with('thongbao', __('message.delete.success'));
     }
 
-    public function getEditPost(PostRequest $request, $id)
+    public function getEditPost($id)
     {
         $data = [
             'post' => $this->post->olderPost($id),
@@ -53,13 +53,13 @@ class PostController extends Controller
     {   
         $this->post->editPost($request->all(), $id);
 
-        return redirect('admin/post/edit/$id')->with('thongbao', __('edit.success'));
+        return redirect()->route('post.edit', ['id' => $id])->with('thongbao', __('message.edit.success'));
     }
 
     public function postAddPost(PostRequest $request)
     {
         $this->post->create($request->all());
 
-        return redirect('admin/post/add')->with('thongbao', __('add.success'));
+        return redirect()->route('post.add')->with('thongbao', __('message.add.success'));
     }
 }
