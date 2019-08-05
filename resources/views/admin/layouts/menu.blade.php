@@ -31,10 +31,10 @@
                 <a href="admin/tintuc/danhsach"><i class="fa fa-bar-chart-o fa-fw"></i>{{ trans('message.admin.post') }}<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/post/list">{{ trans('message.admin.add') }}</a>
+                        <a href="{{ route('post.add') }}">{{ trans('message.admin.add') }}</a>
                     </li>
                     <li>
-                        <a href="admin/post/add">{{ trans('message.admin.list') }}</a>
+                        <a href="{{ route('post.list') }}">{{ trans('message.admin.list') }}</a>
                     </li>
                 </ul>
             </li>
