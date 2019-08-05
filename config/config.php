@@ -7,6 +7,11 @@ return [
             'document' => 1,
             'example' => 2,
         ],
+        'name' => [
+            'primary' => 1,
+            'secondary' => 2,
+            'high' => 3,
+        ],
     ],
     'document' => [
         'type' => [

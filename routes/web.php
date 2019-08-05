@@ -11,16 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('client.pages.index');
-});
-Route::get('index', function(){
-    return view('client.pages.index');
-})->name('trang-chu');
+
+/*
+- Route client
+*/
+Route::get('/', 'client\IndexController@viewHome')->name('index.page');
+Route::get('document/{TenKhongDau}/{id}.html', 'client\DocumentDetailController@viewDocumentDetail')->name('client.document.detail');
+Route::get('TenKhongDau/{id}.html', 'client\CategoryController@viewCategory')->name('client.category');
+
+/*
+- Login and Signup
+*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+/*
+- Route admin
+*/
 Route::group(['prefix' => 'admin'], function(){
     Route::get('index', 'admin\AdminController@getLayoutIndex')->name('admin.index');
     Route::group(['prefix' => 'category'], function(){
