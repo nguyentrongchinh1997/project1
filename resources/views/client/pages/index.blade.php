@@ -84,7 +84,7 @@
                 <div class="col-lg-12" style="padding: 0px">
                     <h1>
                         <i class="fas fa-file-alt" style="color: #4d81ed"></i> {{ $category->name }}
-                        <span style="float: right; font-size: 20px; margin-top: 15px"><a href="{{ $category->unsigned_name }}/{{ $category->id }}">» {{ trans('message.client.index.all_view') }}</a></span>
+                        <span style="float: right; font-size: 20px; margin-top: 15px"><a href="{{ route('client.category', ['unsigned_name' => $category->unsigned_name, 'id' => $category->id]) }}">» {{ trans('message.client.index.all_view') }}</a></span>
                     </h1><hr>
                 </div>
             </div> 

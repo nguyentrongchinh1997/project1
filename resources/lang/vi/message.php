@@ -88,5 +88,8 @@ return [
             'new_document' => 'Tài liệu mới',
             'all_view' => 'Xem tất cả',
         ],
+        'category' => [
+            'document' => 'Tài liệu',
+        ],
     ],
 ];

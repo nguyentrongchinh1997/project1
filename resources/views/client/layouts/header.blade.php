@@ -7,17 +7,13 @@
                     
         </div>
         <div class="col-lg-1" id="menu">
-            <span>Tài liệu</span> <i class="fas fa-chevron-down"></i>
+            <span>{{ trans('message.client.category.document') }}</span> <i class="fas fa-chevron-down"></i>
             <ul style="padding-left: 0px">
-                <a href="">
-                    <li>» Tiểu học</li>
-                </a>
-                <a href="">
-                    <li>» Trung học cơ sở</li>
-                </a>
-                <a href="">
-                    <li>» Trung học phổ thông</li>
-                </a>
+                @foreach ($listCategory as $category)
+                    <a href="{{ route('client.category', ['unsigned_name' => $category->unsigned_name, 'id' => $category->id]) }}">
+                        <li>» {{ $category->name }}</li>
+                    </a>
+                @endforeach
             </ul>
         </div>
         <div class="col-lg-7">

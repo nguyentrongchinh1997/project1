@@ -88,5 +88,8 @@ return [
             'new_document' => 'New Document',
             'view_all' => 'All',
         ],
+        'category' => [
+            'document' => 'Document',
+        ],
     ],
 ];
