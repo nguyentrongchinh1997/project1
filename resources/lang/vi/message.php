@@ -83,4 +83,10 @@ return [
         'add' => 'Thêm',
         'list' => 'Danh sách',
     ],
+    'client' => [
+        'index' => [
+            'new_document' => 'Tài liệu mới',
+            'all_view' => 'Xem tất cả',
+        ],
+    ],
 ];
