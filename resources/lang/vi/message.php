@@ -84,12 +84,22 @@ return [
         'list' => 'Danh sách',
     ],
     'client' => [
+        'home' => 'Trang chủ',
         'index' => [
             'new_document' => 'Tài liệu mới',
             'all_view' => 'Xem tất cả',
         ],
         'category' => [
             'document' => 'Tài liệu',
+        ],
+        'detail_document' => [
+            'page_number' => 'Số trang',
+            'file_type' => 'Loại file',
+            'view' => 'Lượt xem',
+            'download_number' => 'Lượt tải',
+            'dicription' => 'Mô tả',
+            'download' => 'Tải xuống',
+            'page' => 'Trang',
         ],
     ],
 ];

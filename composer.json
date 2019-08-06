@@ -6,9 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "calcinai/php-imagick": "^0.1.2",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "spatie/pdf-to-image": "^1.8"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
