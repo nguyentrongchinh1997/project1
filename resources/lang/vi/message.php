@@ -101,5 +101,9 @@ return [
             'download' => 'Tải xuống',
             'page' => 'Trang',
         ],
+        'header' => [
+            'balance' => 'Số dư',
+        ],
+        'not_found' => 'Không tìm thấy tài liệu', 
     ],
 ];

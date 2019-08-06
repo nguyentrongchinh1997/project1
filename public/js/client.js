@@ -11,3 +11,17 @@ function login()
         return false;
     }
 }
+
+$(document).ready(function(){
+    $('.search').keyup(function(){
+        var keyWord = $('.search').val();
+        if (keyWord != '') {
+            $.get('search/' + keyWord, function(data){
+                $('.result').html(data);
+                $('.result').show();
+            });
+        } else {
+            $('.result').hide();
+        }
+    })
+})
