@@ -159,3 +159,35 @@ body{
     text-align: left; 
     padding-left: 57px;
 }
+.result{
+    display: none;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    background: #fff;
+}
+.list-result img{
+    margin-top: 0px !important;
+}
+.list-result{
+    padding: 10px 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.list-result:hover{
+    background: #4d81ed;
+    transition: 0.4s;
+}
+.list-result:hover p{
+    color: #fff;
+}
+.search-image{
+    padding: 0px !important;
+}
+.list-result p{
+    color: #000;
+}
+.list-result p:hover{
+    text-decoration: none;
+}

@@ -30,7 +30,7 @@ class LoginController extends Controller
     protected function redirectTo()
     {
         if (Auth::user()->level == 0) {
-            return route('trang-chu');
+            return route('index.page');
         } else {
             return route('admin.index');
         }
