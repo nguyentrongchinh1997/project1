@@ -101,5 +101,9 @@ return [
             'download' => 'Download',
             'page' => 'Page',
         ],
+        'header' => [
+            'balance' => 'Số dư',
+        ],
+        'not_found' => 'Not found', 
     ],
 ];

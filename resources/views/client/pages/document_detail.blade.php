@@ -1,4 +1,4 @@
-@extends("client.layouts.index")
+@extends("client.layouts.index", ['title' => $detailDocument->name])
 
 @section("content")
 <div class="row">
