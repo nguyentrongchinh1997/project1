@@ -18,7 +18,6 @@
 Route::get('/', 'client\IndexController@viewHome')->name('index.page');
 Route::get('document/{unsignedName}/{id}.html', 'client\DocumentDetailController@viewDocumentDetail')->name('client.document.detail');
 Route::get('{unsignedName}/{id}.html', 'client\CategoryController@viewCategory')->name('client.category');
-
 /*
 - Login and Signup
 */

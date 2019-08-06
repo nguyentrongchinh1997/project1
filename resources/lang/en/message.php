@@ -84,12 +84,22 @@ return [
         'list' => 'List',
     ],
     'client' => [
+        'home' => 'Home',
         'index' => [
             'new_document' => 'New Document',
             'view_all' => 'All',
         ],
         'category' => [
             'document' => 'Document',
+        ],
+        'detail_document' => [
+            'page_number' => 'Page number',
+            'file_type' => 'File',
+            'view' => 'view',
+            'download_number' => 'download',
+            'dicription' => 'Dicription',
+            'download' => 'Download',
+            'page' => 'Page',
         ],
     ],
 ];

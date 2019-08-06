@@ -132,11 +132,30 @@ body{
 .dicription{
     background: #fff;
     width: 100%;
-    height: auto;
+    height: 300px;
+    overflow: auto;
     border: 1px solid #e5e5e5;
     padding: 15px;
 }
 .dicription h3{
     margin: 0px;
 }
-
+.preview{
+    background: rgb(82, 86, 89);
+    max-height: 700px; 
+    overflow: auto; 
+}
+.preview img {
+    width: 85%; 
+    border: 1px solid #ccc; 
+    margin: 20px 0px 0px 0px;
+}
+.preview p{
+    color: #fff;
+    margin-top: 20px; 
+    margin-bottom: 0px; 
+    font-size: 18px; 
+    font-weight: bold; 
+    text-align: left; 
+    padding-left: 57px;
+}

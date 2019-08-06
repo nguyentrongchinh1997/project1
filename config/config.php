@@ -18,5 +18,13 @@ return [
             'free' => 0,
             'pay' => 1,
         ],
+        'convert' => [
+            'yes' => 1,
+            'no' => 0,
+        ],
+        'url' => [
+            'preview' => '/upload/preview/',
+            'file' => '/upload/document/file/',
+        ],
     ],
 ];
