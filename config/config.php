@@ -27,4 +27,10 @@ return [
             'file' => '/upload/document/file/',
         ],
     ],
+    'user' => [
+        'level' => [
+            'client' => 0,
+            'admin' =>1,
+        ],
+    ],
 ];

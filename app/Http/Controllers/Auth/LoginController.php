@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -29,7 +28,7 @@ class LoginController extends Controller
     
     protected function redirectTo()
     {
-        if (Auth::user()->level == 0) {
+        if (auth()->user()->level == config('config.user.level.client')) {
             return route('index.page');
         } else {
             return route('admin.index');
