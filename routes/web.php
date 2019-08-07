@@ -19,6 +19,7 @@ Route::get('/', 'client\IndexController@viewHome')->name('index.page');
 Route::get('document/{unsignedName}/{id}.html', 'client\DocumentDetailController@viewDocumentDetail')->name('client.document.detail');
 Route::get('{unsignedName}/{id}.html', 'client\CategoryController@viewCategory')->name('client.category');
 Route::get('search/{keyWord}', 'client\AjaxController@searchResult');
+Route::get('404', 'client\NotFoundController@notFound')->name('not_found');
 /*
 - Login and Signup
 */
@@ -29,7 +30,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 /*
 - Route admin
 */
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'adminArea'], function(){
     Route::get('index', 'admin\AdminController@getLayoutIndex')->name('admin.index');
     Route::group(['prefix' => 'category'], function(){
         Route::get('add', 'admin\CategoryController@getAddCategoryForm')->name('category.add');
